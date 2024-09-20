@@ -1,64 +1,65 @@
 package NewTesting;
+import org.eclipse.jdt.internal.compiler.ast.TrueLiteral;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Set;
 
 public class predchampnew {
-    static WebDriver driver = new ChromeDriver();
+    public static WebDriver predchampnew = new ChromeDriver();
 
     public static void main(String[] args) throws InterruptedException {
-        driver.get("https://play01.predchamp.com");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-        //driver.findElement(By.className("bottom-redirect-content")).click();
-        System.out.println(isClickable(driver.findElement(By.id("optionA"))));
-        driver.findElement(By.id("optionA")).click(); 
+        predchampnew.get("https://play01.predchamp.com");
+        predchampnew.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        //predchampnew.findElement(By.className("bottom-redirect-content")).click();
+        System.out.println(isClickable(predchampnew.findElement(By.id("optionA"))));
+        predchampnew.findElement(By.id("optionA")).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("claimButton")).click();
+        /*predchampnew.findElement(By.id("claimButton")).click();
         Thread.sleep(11000);
-        driver.findElement(By.id("dismiss-button-element")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.findElement(By.id("optionA")).click();
+        predchampnew.findElement(By.id("dismiss-button-element")).click();
+        predchampnew.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));*/
+        predchampnew.findElement(By.className("close-button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.className("close-button")).click();
+//        predchampnew.findElement(By.id("optionB")).click();
+//        Thread.sleep(3000);
+        /*predchampnew.findElement(By.className("close-button")).click();
+        Thread.sleep(3000);*/
+        predchampnew.findElement(By.xpath("//div[@id='2']//a[@id='optionA']")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//div[@id='2']//a[@id='optionA']")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.className("continue-btn")).click();
+        predchampnew.findElement(By.className("continue-btn")).click();
         Thread.sleep(2000);
-        driver.navigate().refresh();
+        predchampnew.navigate().refresh();
         Thread.sleep(2000);
-        driver.findElement(By.className("continue-btn")).click();
+        predchampnew.findElement(By.className("continue-btn")).click();
         sleepThread();
-        driver.findElement(By.id("celebrityLetBtn")).click();
+        predchampnew.findElement(By.id("celebrityLetBtn")).click();
         sleepThread();
-        driver.findElement(By.className("option")).click();
+        predchampnew.findElement(By.className("option")).click();
         sleepThread();
-        driver.findElement(By.className("option")).click();
+        predchampnew.findElement(By.className("option")).click();
         sleepThread();
-        driver.findElement(By.className("option")).click();
+        predchampnew.findElement(By.className("option")).click();
         sleepThread();
-        driver.findElement(By.className("option")).click();
+        predchampnew.findElement(By.className("option")).click();
         sleepThread();
-        driver.findElement(By.className("next-button")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        predchampnew.findElement(By.className("next-button")).click();
+        predchampnew.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    }
+
+    private static boolean isClickable(WebElement optionA) {
+        return false;
     }
 
     static void sleepThread() throws InterruptedException {
         Thread.sleep(2000);
-    }
-
-    public static boolean isClickable(WebElement webElement) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            wait.until(ExpectedConditions.elementToBeClickable(webElement));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 }
